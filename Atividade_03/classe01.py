@@ -14,6 +14,9 @@ class Retangulo:
         return self.__h
     def calc_area(self):
         return self.__b * self.__h 
+    def calc_diagonal(self):
+        return math.sqrt(self.__b**2 + self.__h**2)
+    
     def __str__(self):
         return f"Eu sou um Retângulo, minha base é {self.__b} e minha altura é {self.__h}"
 def retangulo():
@@ -23,5 +26,6 @@ def retangulo():
         x = Retangulo(b, h)
         area = x.calc_area()
         print(x)
-        print(f"Um retângulo com base {x.get_base()} e altura {x.get_altura()} tem área = {area}") 
+        print(f"Um retângulo com base {x.get_base()} e altura {x.get_altura()} tem área = {area}")
+        print(f"Minha diagonal é: calc_diagonal():.2f)")
 retangulo()
