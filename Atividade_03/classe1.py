@@ -31,7 +31,7 @@ class ContatoUI:
             if op == 1: ContatoUI.inserir()
             if op == 2: ContatoUI.listar()
     @staticmethod
-    def menu()
+    def menu():
         print("1 - Inserir 2 - Listar 3 - Atualizar 4 - Excluir 5 - Pesquisar 6 - Fim")
         return int(input("Escolha uma opção: "))
     @classmethod
