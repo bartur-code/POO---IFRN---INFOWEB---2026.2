@@ -20,3 +20,21 @@ class Contato:
     def get_fone(self): return self.__fone
     def __str__(self):
         return f"{self.__id} - {self.__nome} - {self.email} - {self.fone}"
+
+class ContatoUI:
+    contatos = []
+    @staticmethod
+    def main():
+        op = 0
+        while op != 6:
+            op = ContatoUI.menu()
+    @staticmethod
+    def menu()
+        print("1 - Inserir 2 - Listar 3 - Atualizar 4 - Excluir 5 - Pesquisar 6 - Fim")
+        return int(input("Escolha uma opção: "))
+    def inserir()
+
+ContatoUI.main()
+
+
+
