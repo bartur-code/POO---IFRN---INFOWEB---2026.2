@@ -28,12 +28,28 @@ class ContatoUI:
         op = 0
         while op != 6:
             op = ContatoUI.menu()
+            if op == 1: ContatoUI.inserir()
+            if op == 2: ContatoUI.listar()
     @staticmethod
     def menu()
         print("1 - Inserir 2 - Listar 3 - Atualizar 4 - Excluir 5 - Pesquisar 6 - Fim")
         return int(input("Escolha uma opção: "))
-    def inserir()
+    @classmethod
+    def inserir(cls):
+        id = int(input("Infome o id do contato: "))
+        nome = input("Informe o nome: ")
+        email = input("Informe o e-mail: ")
+        fone = input("Informe o telefone: ")
+        x = Contato(id, nome, email, fone)
+        cls.contatos.append(x)
+        print("Contato inserido com sucesso")
 
+    @classmethod
+    def listar(cls):
+        if len(cls.contatos) == 0: print("Nenhum contato na agenda")
+        else:
+            for x in cls.contatos: print(x)
+        
 ContatoUI.main()
 
 
