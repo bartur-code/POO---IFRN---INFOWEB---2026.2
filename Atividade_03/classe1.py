@@ -19,7 +19,7 @@ class Contato:
     def get_email(self): return self.__email
     def get_fone(self): return self.__fone
     def __str__(self):
-        return f"{self.__id} - {self.__nome} - {self.email} - {self.fone}"
+        return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone}"
 
 class ContatoUI:
     contatos = []
