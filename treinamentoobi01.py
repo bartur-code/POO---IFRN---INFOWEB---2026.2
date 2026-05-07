@@ -1,6 +1,10 @@
-cibele = 7
-camila = 12
-celeste = 29
-idade = 7 < camila < 29
-print(camila)
+X = int(input())
+Y = int(input())
+Z = int(input())
+lista = [X, Y, Z]
+
+menor = min(lista)
+maior = max(lista)
+meio = sum(lista) - maior - menor
+print(meio)
 
