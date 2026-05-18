@@ -35,11 +35,11 @@ class UI:
         p = float(input("Qual o peso do produto em kg? "))
         x = Frete(d, p) # __init__
         print(x)        # __str__
-        print(x.calc_frete())
+        print("Total em reais:", x.calc_frete())
         print(x.get_distancia())
         print(x.get_peso())
         p = float(input("Qual o peso correto em kg? "))
         x.set_peso(p)
-        print(x.calc_frete())
+        print("Total em reais:", x.calc_frete())
 
 UI.main()
