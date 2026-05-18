@@ -26,3 +26,11 @@ class Frete:
     def __str__(self): # mostrar os dados (todos) # não tem "void", logo tem que ter o "return" em baixo
         # retornar vários valores pra texto: return f"{self.__distancia} - {self.__peso}"
         return str(self.__distancia) + " - " + str(self.__peso) # junção de valores (numéricos) para forma de textos
+
+
+class UI:
+    @staticmethod
+    def main():
+        d = float("Qual a distância até o destino em km? ")
+        p = float("Qual o peso do produto em kg? ")
+        x = Frete(d, p) # __init__
