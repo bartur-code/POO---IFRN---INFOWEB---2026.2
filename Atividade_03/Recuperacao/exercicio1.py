@@ -31,6 +31,15 @@ class Frete:
 class UI:
     @staticmethod
     def main():
-        d = float("Qual a distância até o destino em km? ")
-        p = float("Qual o peso do produto em kg? ")
+        d = float(input("Qual a distância até o destino em km? "))
+        p = float(input("Qual o peso do produto em kg? "))
         x = Frete(d, p) # __init__
+        print(x)        # __str__
+        print(x.calc_frete())
+        print(x.get_distancia())
+        print(x.get_peso())
+        p = float(input("Qual o peso correto em kg? "))
+        x.set_peso(p)
+        print(x.calc_frete())
+
+UI.main()
