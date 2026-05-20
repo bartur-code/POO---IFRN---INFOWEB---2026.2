@@ -7,7 +7,7 @@ class Time:
         if id < 0: raise ValueError("O id precisa ser positivo")
         self.__id = id
     def set_nome(self, nome):
-        if nome < 0: raise ValueError("Não pode ser vazio")
+        if nome == "": raise ValueError("Não pode ser vazio")
         self.__nome = nome
     def set_estado(self, estado):
         estados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",\
