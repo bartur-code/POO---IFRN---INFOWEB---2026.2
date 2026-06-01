@@ -26,16 +26,21 @@ class Produto: # - tipo de variável
         return self.__preco
     def get_avaliacao(self):
         return self.__avaliacao
+    
+class UI:
+        def main():
+            a = Produto() # - nome da classe seguido de "()" chama o __init__
 
-a = Produto() # - nome da classe seguido de "()" chama o __init__
-
-a.set_id(5)
-a.set_nome("Café Clássico em Grãos")
-a.set_preco(10)
-a.set_avaliacao(4)
+            a.set_id(5)
+            a.set_nome("Café Clássico em Grãos")
+            a.set_preco(10)
+            a.set_avaliacao(4)
 
 
-print(a.get_id())
-print(a.get_nome())
-print(a.get_preco())
-print(a.get_avaliacao())
+            print(a.get_id())
+            print(a.get_nome())
+            print(a.get_preco())
+            print(a.get_avaliacao())
+UI.main()
+
+
