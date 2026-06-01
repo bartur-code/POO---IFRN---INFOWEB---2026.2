@@ -14,7 +14,7 @@ class Produto: # - tipo de variável
         if preco < 0: raise ValueError("Preço tem que ser positivo")
         self.__preco = preco
     def set_avaliacao(self, avaliacao):
-        if avaliacao < 0: raise ValueError("Avaliação não pode ser negativa")
+        if avaliacao < 1 or avaliacao > 5: raise ValueError("Avaliação deve ser de 1 a 5")
         self.__avaliacao = avaliacao
     def get_id(self):
         return self.__id
@@ -26,6 +26,12 @@ class Produto: # - tipo de variável
         return self.__avaliacao
 
 a = Produto() # - nome da classe seguido de "()" chama o __init__
+
+a.set_id(5)
+a.set_nome("Café Clássico em Grãos")
+a.set_preco(10)
+a.set_avaliacao(4)
+
 
 print(a.get_id())
 print(a.get_nome())
