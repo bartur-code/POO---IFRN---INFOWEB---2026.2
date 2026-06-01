@@ -4,6 +4,8 @@ class Produto: # - tipo de variável
         self.__nome = "Sem nome"
         self.__preco = 0.0
         self.__avaliacao = 1
+    def __str__(self):
+        return "Produto:"
     def set_id(self, id):
         if id < 0: raise ValueError("Id tem que ser positivo")
         self.__id = id
