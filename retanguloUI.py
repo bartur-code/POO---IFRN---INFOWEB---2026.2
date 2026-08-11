@@ -1,0 +1,14 @@
+import streamlit as st
+from retangulo import retangulo 
+
+class RetanguloUI:
+    def main():
+        st.header("Cálculos com Retângulo")
+        b = st.text_input("Informe a Base")
+        h = st.text_input("Informe a Altura")
+        if st.button("Calcular"):
+            r = retangulo(float(b), float(h))
+            st.write(f"Área = {r.calc_area():.2f}")
+            st.write(f"Diagonal = {r.calc_diagonal:.2f}")
+            st.write(r)
+
