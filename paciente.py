@@ -39,15 +39,15 @@ class Paciente:
 #print(x)
 #print(x.idade())
 
-class PacienteUI:
+class PacienteUI2:
     __pacientes = []
     @staticmethod
     def main():
         op = 0
         while op != 9:
-            op = PacienteUI.menu()
-            if op == 1: PacienteUI.inserir()
-            if op == 2: PacienteUI.listar()
+            op = PacienteUI2.menu()
+            if op == 1: PacienteUI2.inserir()
+            if op == 2: PacienteUI2.listar()
 
     @staticmethod
     def menu():
@@ -68,4 +68,4 @@ class PacienteUI:
     def listar(cls):                
         for x in cls.__pacientes: print(x, x.idade())
 
-PacienteUI.main()
+#PacienteUI2.main()

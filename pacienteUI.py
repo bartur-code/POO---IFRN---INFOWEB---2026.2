@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import date
+from datetime import datetime, date
 from paciente import Paciente
 
 class PacienteUI:
@@ -16,3 +16,4 @@ class PacienteUI:
         if st.button("Idade"):
             x = Paciente(nome, cpf, telefone, nascimento)
             st.write(x.idade())
+PacienteUI.main()
