@@ -1,4 +1,4 @@
-class Cliente:
+class Endereço:
     def __init__(self, id, nome, email, fone, especialidade):
         self.id = id
         self.nome = nome
@@ -36,48 +36,48 @@ class Cliente:
     def set_especialidade(self, especialidade):
         self.especialidade = especialidade
 
-class ClienteDAO:
+class EnderecoDAO:
     def __init__(self):
-        self.profissionais = []
+        self.endereços = []
         self.proximo_id = 1
 
-    def inserir(self, cliente):
-        cliente.set_id(self.proximo_id)
-        self.clientes.append(cliente)
+    def inserir(self, endereco):
+        endereco.set_id(self.proximo_id)
+        self.endereco.append(endereco)
         self.proximo_id += 1
 
     def listar(self):
-        return self.clientes
+        return self.endereco
 
     def buscar_por_id(self, id):
-        for cliente in self.clientes:
-            if cliente.get_id() == id:
-                return cliente
+        for endereco in self.endereco:
+            if endereco.get_id() == id:
+                return endereco
         return None
 
-    def atualizar(self, cliente):
-        for i in range(len(self.clientes)):
-            if self.clientes[i].get_id() == cliente.get_id():
-                self.clientes[i] = cliente
+    def atualizar(self, endereco):
+        for i in range(len(self.endereco)):
+            if self.endereco[i].get_id() == endereco.get_id():
+                self.endereco[i] = endereco
                 return True
 
         return False
 
     def excluir(self, id):
-        cliente = self.buscar_por_id(id)
+        endereco = self.buscar_por_id(id)
 
-        if cliente is not None:
-            self.clientes.remove(cliente)
+        if endereco is not None:
+            self.enderecos.remove(endereco)
             return True
 
         return False
 
 class Service:
     def __init__(self):
-        self.cliente_dao = ClienteDAO()
+        self.endereco_dao = EnderecoDAO()
 
     def inserir_cliente(self, nome, email, fone, especialidade):
-        cliente = Cliente(
+        endereco = endereco(
             0,
             nome,
             email,
@@ -85,16 +85,16 @@ class Service:
             especialidade
         )
 
-        self.cliente_dao.inserir(cliente)
+        self.endereco_dao.inserir(endereco)
 
-    def listar_clientes(self):
-        return self.cliente_dao.listar()
+    def listar_endereco(self):
+        return self.endereco_dao.listar()
 
-    def buscar_cliente(self, id):
-        return self.cliente_dao.buscar_por_id(id)
+    def buscar_endereco(self, id):
+        return self.endereco_dao.buscar_por_id(id)
 
-    def atualizar_cliente(self, id, nome, email, fone, especialidade):
-        cliente = Cliente(
+    def atualizar_endereco(self, id, nome, email, fone, especialidade):
+        endereco = endereco(
             id,
             nome,
             email,
@@ -102,82 +102,82 @@ class Service:
             especialidade
         )
 
-        return self.cliente_dao.atualizar(cliente)
+        return self.endereco_dao.atualizar(endereco)
 
-    def excluir_cliente(self, id):
-        return self.cliente_dao.excluir(id)
+    def excluir_endereco(self, id):
+        return self.endereco_dao.excluir(id)
 
-class ManterClienteUI:
+class ManterEnderecoUI:
     def __init__(self, service):
         self.service = service
 
     def cadastrar(self):
-        print("\n--- CADASTRO DE CLIENTE ---")
+        print("\n--- CADASTRO DE ENDEREÇO ---")
 
         nome = input("Nome: ")
         email = input("E-mail: ")
         fone = input("Fone: ")
         especialidade = input("Especialidade: ")
 
-        self.service.inserir_cliente(
+        self.service.inserir_endereco(
             nome,
             email,
             fone,
             especialidade
         )
 
-        print("Cliente cadastrado com sucesso!")
+        print("Endereço cadastrado com sucesso!")
 
     def listar(self):
-        print("\n--- CLIENTES CADASTRADOS ---")
+        print("\n--- ENDEREÇOS CADASTRADOS ---")
 
-        clientes = self.service.listar_clientes()
+        endereco = self.service.listar_enderecos()
 
-        if len(clientes) == 0:
-            print("Nenhum cliente cadastrado.")
+        if len(endereco) == 0:
+            print("Nenhum endereco cadastrado.")
             return
 
-        for cliente in clientes:
+        for endereco in endereco:
             print(
-                "ID:", cliente.get_id(),
-                "| Nome:", cliente.get_nome(),
-                "| E-mail:", cliente.get_email(),
-                "| Especialidade:", cliente.get_especialidade()
+                "ID:", endereco.get_id(),
+                "| Nome:", endereco.get_nome(),
+                "| E-mail:", endereco.get_email(),
+                "| Especialidade:", endereco.get_especialidade()
             )
 
     def excluir(self):
-        print("\n--- EXCLUIR Cliente ---")
+        print("\n--- EXCLUIR ENDEREÇO ---")
 
-        id = int(input("Digite o ID do cliente: "))
+        id = int(input("Digite o ID do Endereço: "))
 
-        if self.service.excluir_cliente(id):
-            print("Cliente excluído com sucesso!")
+        if self.service.excluir_endereco(id):
+            print("Endereço excluído com sucesso!")
         else:
-            print("Cliente não encontrado.")
+            print("Endereço não encontrado.")
 
 class IndexUI:
     def __init__(self):
         self.service = Service()
-        self.cliente_ui = ManterClienteUI(self.service)
+        self.endereco_ui = ManterEnderecoUI(self.service)
 
     def iniciar(self):
         while True:
             print("\n===== SISTEMA DE AGENDAMENTO =====")
-            print("1 - Cadastrar cliente")
-            print("2 - Listar clientes")
-            print("3 - Excluir cliente")
+            print("1 - Cadastrar endereço")
+            print("2 - Listar endereços")
+            print("3 - Excluir endereço")
             print("0 - Sair")
 
             opcao = input("Escolha uma opção: ")
 
             if opcao == "1":
-                self.cliente_ui.cadastrar()
+                self.endereco_ui.cadastrar()
 
             elif opcao == "2":
-                self.cliente_ui.listar()
+                self.endereco_ui.listar()
 
             elif opcao == "3":
-                self.cliente_ui.excluir()
+                self.endereco_ui.excluir()
 
             elif opcao == "0":
                 print("Sistema encerrado.")
