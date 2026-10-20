@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATIVIDADE 01 - 07-09 - 2026</title>
+</head>
+<body>
+    <h1>ATIVIDADE dESIGN WEB - ARRAY E FOR</h1>
+    <h2>Números de -10 a 10:</h2>
+    <p id="id_one"></p>
+    <script>
+        const numero = document.getElementById('id_one')
+        for (let i = -10; i <= 10; i++) {
+            numero.innerHTML += `<span>${i} </span>`
+        }
+    </script>
+    <h2>Nome 7 vezes: </h2>
+    <p id="id_two"></p>
+    <script>
+        const id_two = document.getElementById('id_two')
+        const cores = ['Blue', 'Green', 'Red', 'Yellow', 'Grey', 'Purple', 'Orange']
+        const nome = 'JOÃO RAFAEL'
+        cores.forEach(cor => {
+            id_2.innerHTML += `<span style = "color: ${cor};">${nome}</span> <br>`
+        }
+        )
+        
+        id_two.style.color = cores[Math.floor(Math.random() * cores.length)]
+    </script>
+    <h2>Tamanhos diferentes: </h2>
+    <p id="tamanhos"></p>
+    <script>
+        const tamanho = document.getElementById('tamanhos')
+        for (let i = 1; i <= 5; i++) {
+            tamanho.innerHTML += `<span style="font-size: ${i}rem;">${i} </span>`
+        }
+    </script>
+    <h2>Formulário: </h2>
+    <form id="meuarquivo">
+        <label>Nome: 
+            <input type="text" id="name" placeholder="nome" required>
+        </label>
+        <button id="botao">ENVIAR</button>
+    </form>
+    <p id="resultado"></p>
+    <script>
+        const botao = document.getElementById('botao')
+        botao.addEventListener('click', () => {
+            const name = document.getElementById("name").value
+            for (let i = 0; i <= 5; i++) {
+                resultado.innerHTML += `<span style="font-size: ${i}rem;">${name} </span>`
+            }
+        }
+        )
+        
+    </script>
+    <h2>Aumentar e Diminuir botão</h2>
+    <p id="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat dolorum, minima molestias debitis fuga enim vel fugit ullam earum, atque nemo omnis commodi dicta voluptatibus, tempora quae. Eum, aspernatur assumenda?</p>
+    <button id="aumentar">2</button>
+    <button id="diminuir">0.5</button>
+    <script>
+        const button_one = document.getElementById('aumentar')
+        const second_button = document.getElementById('diminuir')
+        const lorem = document.getElementById('lorem')
+
+        button_one.addEventListener('click', () => {
+            lorem.style.fontSize = "2rem"
+        })
+        second_button.addEventListener('click', () => {
+            lorem.style.fontSize = "0.5rem"
+        })
+    </script>
+</body>
+</html>
