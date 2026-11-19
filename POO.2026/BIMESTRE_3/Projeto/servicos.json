@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "descricao": "Cardiologista",
+    "valor": 20.0
+  },
+  {
+    "id": 2,
+    "descricao": "Infectologista",
+    "valor": 300.0
+  }
+]

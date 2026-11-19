@@ -1,0 +1,14 @@
+[
+  {
+    "id": 0,
+    "nome": "Brasil",
+    "sigla": "BRA",
+    "grupo": "C"
+  },
+  {
+    "id": 1,
+    "nome": "PORTUGAL ",
+    "sigla": "POR",
+    "grupo": "L"
+  }
+]

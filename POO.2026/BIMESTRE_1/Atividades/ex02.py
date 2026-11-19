@@ -1,0 +1,5 @@
+n = str(input('Digite uma operação matemática: '))
+posicao = n.find('+')
+numero_1 = int(n[0:posicao])
+numero_2 = int(n[posicao:])
+print('O resultado é igual a {n}')

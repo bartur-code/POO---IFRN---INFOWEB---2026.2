@@ -1,0 +1,156 @@
+from datetime import datetime
+
+class Cliente:
+    def __init__(self, id: int, nome: str, email: str, senha: str):
+        self.__id = id
+        self.nome = nome
+        self.email = email
+        self.senha = senha
+
+    # ID
+    @property
+    def id(self) -> int:
+        return self.__id
+
+    @id.setter
+    def id(self, valor: int):
+        self.__id = valor
+
+    # Nome
+    @property
+    def nome(self) -> str:
+        return self.__nome
+
+    @nome.setter
+    def nome(self, valor: str):
+        if not valor or not valor.strip():
+            raise ValueError("O nome do cliente não pode ser vazio.")[cite: 1]
+        self.__nome = valor.strip()
+
+    # E-mail
+    @property
+    def email(self) -> str:
+        return self.__email
+
+    @email.setter
+    def email(self, valor: str):
+        if not valor or not valor.strip():
+            raise ValueError("O e-mail do cliente não pode ser vazio.")[cite: 1]
+        self.__email = valor.strip()
+
+    # Senha
+    @property
+    def senha(self) -> str:
+        return self.__senha
+
+    @senha.setter
+    def senha(self, valor: str):
+        if not valor or not valor.strip():
+            raise ValueError("A senha do cliente não pode ser vazia.")[cite: 1]
+        self.__senha = valor.strip()
+
+    def __str__(self):
+        return f"Cliente [ID: {self.__id}, Nome: {self.__nome}, Email: {self.__email}]"
+
+
+class Profissional:
+    def __init__(self, id: int, nome: str, email: str, senha: str):
+        self.__id = id
+        self.nome = nome
+        self.email = email
+        self.senha = senha
+
+    # ID
+    @property
+    def id(self) -> int:
+        return self.__id
+
+    @id.setter
+    def id(self, valor: int):
+        self.__id = valor
+
+    # Nome
+    @property
+    def nome(self) -> str:
+        return self.__nome
+
+    @nome.setter
+    def nome(self, valor: str):
+        if not valor or not valor.strip():
+            raise ValueError("O nome do profissional não pode ser vazio.")[cite: 1]
+        self.__nome = valor.strip()
+
+    # E-mail
+    @property
+    def email(self) -> str:
+        return self.__email
+
+    @email.setter
+    def email(self, valor: str):
+        if not valor or not valor.strip():
+            raise ValueError("O e-mail do profissional não pode ser vazio.")[cite: 1]
+        self.__email = valor.strip()
+
+    # Senha
+    @property
+    def senha(self) -> str:
+        return self.__senha
+
+    @senha.setter
+    def senha(self, valor: str):
+        if not valor or not valor.strip():
+            raise ValueError("A senha do profissional não pode ser vazia.")[cite: 1]
+        self.__senha = valor.strip()
+
+    def __str__(self):
+        return f"Profissional [ID: {self.__id}, Nome: {self.__nome}, Email: {self.__email}]"
+
+
+class Horario:
+    def __init__(self, id: int, data_hora: datetime, id_profissional: int, id_cliente: int = None):
+        self.__id = id
+        self.data_hora = data_hora
+        self.__id_profissional = id_profissional
+        self.__id_cliente = id_cliente
+
+    # ID
+    @property
+    def id(self) -> int:
+        return self.__id
+
+    @id.setter
+    def id(self, valor: int):
+        self.__id = valor
+
+    # Data e Hora
+    @property
+    def data_hora(self) -> datetime:
+        return self.__data_hora
+
+    @data_hora.setter
+    def data_hora(self, valor: datetime):
+        if valor.year < 2025:
+            raise ValueError("A data do horário não pode ser anterior ao ano de 2025.")[cite: 1]
+        self.__data_hora = valor
+
+    # ID Profissional
+    @property
+    def id_profissional(self) -> int:
+        return self.__id_profissional
+
+    @id_profissional.setter
+    def id_profissional(self, valor: int):
+        self.__id_profissional = valor
+
+    # ID Cliente
+    @property
+    def id_cliente(self) -> int:
+        return self.__id_cliente
+
+    @id_cliente.setter
+    def id_cliente(self, valor: int):
+        self.__id_cliente = valor
+
+    def __str__(self):
+        status = f"Agendado p/ Cliente ID {self.__id_cliente}" if self.__id_cliente else "Disponível"
+        return f"Horario [ID: {self.__id}, Data/Hora: {self.__data_hora.strftime('%d/%m/%Y %H:%M')}, Profissional ID: {self.__id_profissional}, Status: {status}]"
